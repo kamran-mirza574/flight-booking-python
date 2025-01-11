@@ -1,0 +1,36 @@
+ylist = []
+slist=[]
+while True:
+    print("******************************************************************")
+    print("                 Welcome to the booking app!                      ")
+    print("******************************************************************")
+    print("1. United Emirates")
+    print("2. Alaskan")
+    print("3. Spirit")
+    print("4. Delta")
+    print("5. Ryanair")
+    airline = int(input("Which airline would you like to fly on?"))
+    checkb = input("Would you like to book a flight or check an already booked flight status?(enter check/book)")
+
+    if checkb == "book":
+        y=int(input("Please enter your phone number as a confirmation method: "))
+
+        while True:
+            s=int(input("Okay, and what seat would you like to book?(1-30)"))
+            if s in slist:
+                print("Sorry, that seat isnt available. Please choose another: ")
+            else:
+                slist.append(s)
+                ylist.append(y)
+                print("Okay, your flight has been booked!")
+                break
+    elif checkb=="check":
+        l=int(input("Please enter your phone number you used for booking"))
+        if l in ylist:
+            print("Your booking is valid and your flight is still on track!")
+            g = ylist.index(l)
+            print("Your seat number: ", slist[g])
+        elif l not in ylist:
+            print("Your booking is invalid or your flight has an issue; please contact your airline")
+
+
